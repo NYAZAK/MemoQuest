@@ -74,4 +74,50 @@ class MotListe
     {
         return $this->mot;
     }
+
+    /**
+     * Set definition
+     *
+     * @param string $definition
+     * @return MotListe
+     */
+    public function setDefinition($definition)
+    {
+        $this->definition = $definition;
+
+        return $this;
+    }
+
+    /**
+     * Get definition
+     *
+     * @return string 
+     */
+    public function getDefinition()
+    {
+        return $this->definition;
+    }
+
+    /**
+     * Set liste
+     *
+     * @param \MemoQuest\Bundle\Entity\Liste $liste
+     * @return MotListe
+     */
+    public function setListe(\MemoQuest\Bundle\Entity\Liste $liste = null)
+    {
+        $this->liste = $liste;
+
+        return $this;
+    }
+
+    /**
+     * Get liste
+     *
+     * @return \MemoQuest\Bundle\Entity\Liste 
+     */
+    public function getListe()
+    {
+        return $this->liste;
+    }
 }

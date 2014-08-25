@@ -97,4 +97,27 @@ class Evaluation
     {
         return $this->commentaire;
     }
+
+    /**
+     * Set liste
+     *
+     * @param \MemoQuest\Bundle\Entity\Liste $liste
+     * @return Evaluation
+     */
+    public function setListe(\MemoQuest\Bundle\Entity\Liste $liste = null)
+    {
+        $this->liste = $liste;
+
+        return $this;
+    }
+
+    /**
+     * Get liste
+     *
+     * @return \MemoQuest\Bundle\Entity\Liste 
+     */
+    public function getListe()
+    {
+        return $this->liste;
+    }
 }

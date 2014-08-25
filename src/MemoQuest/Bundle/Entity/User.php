@@ -95,4 +95,44 @@ class User
     {
         return $this->prenom;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->listes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add listes
+     *
+     * @param \MemoQuest\Bundle\Entity\Liste $listes
+     * @return User
+     */
+    public function addListe(\MemoQuest\Bundle\Entity\Liste $listes)
+    {
+        $this->listes[] = $listes;
+
+        return $this;
+    }
+
+    /**
+     * Remove listes
+     *
+     * @param \MemoQuest\Bundle\Entity\Liste $listes
+     */
+    public function removeListe(\MemoQuest\Bundle\Entity\Liste $listes)
+    {
+        $this->listes->removeElement($listes);
+    }
+
+    /**
+     * Get listes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getListes()
+    {
+        return $this->listes;
+    }
 }

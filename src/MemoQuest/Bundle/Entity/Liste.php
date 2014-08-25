@@ -137,4 +137,101 @@ class Liste
     {
         return $this->category;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mots = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->evaluations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set owner
+     *
+     * @param \MemoQuest\Bundle\Entity\User $owner
+     * @return Liste
+     */
+    public function setOwner(\MemoQuest\Bundle\Entity\User $owner = null)
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return \MemoQuest\Bundle\Entity\User 
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * Add mots
+     *
+     * @param \MemoQuest\Bundle\Entity\MotListe $mots
+     * @return Liste
+     */
+    public function addMot(\MemoQuest\Bundle\Entity\MotListe $mots)
+    {
+        $this->mots[] = $mots;
+
+        return $this;
+    }
+
+    /**
+     * Remove mots
+     *
+     * @param \MemoQuest\Bundle\Entity\MotListe $mots
+     */
+    public function removeMot(\MemoQuest\Bundle\Entity\MotListe $mots)
+    {
+        $this->mots->removeElement($mots);
+    }
+
+    /**
+     * Get mots
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMots()
+    {
+        return $this->mots;
+    }
+
+    /**
+     * Add evaluations
+     *
+     * @param \MemoQuest\Bundle\Entity\Evaluation $evaluations
+     * @return Liste
+     */
+    public function addEvaluation(\MemoQuest\Bundle\Entity\Evaluation $evaluations)
+    {
+        $this->evaluations[] = $evaluations;
+
+        return $this;
+    }
+
+    /**
+     * Remove evaluations
+     *
+     * @param \MemoQuest\Bundle\Entity\Evaluation $evaluations
+     */
+    public function removeEvaluation(\MemoQuest\Bundle\Entity\Evaluation $evaluations)
+    {
+        $this->evaluations->removeElement($evaluations);
+    }
+
+    /**
+     * Get evaluations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvaluations()
+    {
+        return $this->evaluations;
+    }
 }
