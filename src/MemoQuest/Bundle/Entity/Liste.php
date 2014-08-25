@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Liste
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_LISTE")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\ListeRepository")
  */
 class Liste
@@ -15,7 +15,7 @@ class Liste
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,21 +24,21 @@ class Liste
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="NAME", type="string", length=255)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="theme", type="string", length=255)
+     * @ORM\Column(name="THEME", type="string", length=255)
      */
     private $theme;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\Column(name="CATEGORY", type="string", length=255)
      */
     private $category;
 

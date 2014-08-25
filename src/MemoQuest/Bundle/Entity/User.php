@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * User
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_USER")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\UserRepository")
  */
 class User
@@ -15,7 +15,7 @@ class User
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,17 +24,21 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="LAST_NAME", type="string", length=255)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="FIRST_NAME", type="string", length=255)
      */
     private $prenom;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Liste", mappedBy="owner", cascade={"remove", "persist"})
+     */
+    private $listes;
 
     /**
      * Get id
