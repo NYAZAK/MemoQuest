@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * MotDict
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_MOT_DICT")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\MotDictRepository")
  */
 class MotDict
@@ -15,7 +15,7 @@ class MotDict
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,7 +24,7 @@ class MotDict
     /**
      * @var string
      *
-     * @ORM\Column(name="mot", type="string", length=255)
+     * @ORM\Column(name="MOT", type="string", length=255)
      */
     private $mot;
 

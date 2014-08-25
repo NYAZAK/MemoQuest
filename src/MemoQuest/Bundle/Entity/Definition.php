@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Definition
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_DEFINITION")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\DefinitionRepository")
  */
 class Definition
@@ -15,7 +15,7 @@ class Definition
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,7 +24,7 @@ class Definition
     /**
      * @var string
      *
-     * @ORM\Column(name="definition", type="string", length=255)
+     * @ORM\Column(name="DEFINITION", type="string", length=255)
      */
     private $definition;
 

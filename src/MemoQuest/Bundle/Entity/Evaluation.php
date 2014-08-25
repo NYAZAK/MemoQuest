@@ -15,7 +15,7 @@ class Evaluation
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,16 +24,22 @@ class Evaluation
     /**
      * @var integer
      *
-     * @ORM\Column(name="note", type="integer")
+     * @ORM\Column(name="NOTE", type="integer")
      */
     private $note;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="string", length=255)
+     * @ORM\Column(name="COMMENT", type="string", length=255)
      */
     private $commentaire;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Liste", inversedBy="evaluations", cascade={"remove"})
+     * @ORM\JoinColumn(name="LIST_ID", referencedColumnName="ROW_ID")
+     */
+	private $liste;
 
 
     /**

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * MotListe
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_MOT_LISTE")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\MotListeRepository")
  */
 class MotListe
@@ -15,7 +15,7 @@ class MotListe
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,10 +24,23 @@ class MotListe
     /**
      * @var string
      *
-     * @ORM\Column(name="mot", type="string", length=255)
+     * @ORM\Column(name="MOT", type="string", length=255)
      */
     private $mot;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DEFINITION", type="string", length=255)
+     */
+    private $definition;
 
+	/**
+     * @ORM\ManyToOne(targetEntity="Liste", inversedBy="mots", cascade={"remove"})
+     * @ORM\JoinColumn(name="LIST_ID", referencedColumnName="ROW_ID")
+     */
+	private $liste;
+	
 
     /**
      * Get id
