@@ -1,0 +1,4 @@
+memo_quest:
+    resource: "@MemoQuestBundle/Resources/config/routing.yml"
+    prefix:   /
+

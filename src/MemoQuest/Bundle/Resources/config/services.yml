@@ -1,0 +1,7 @@
+parameters:
+#    memo_quest.example.class: MemoQuest\Bundle\Example
+
+services:
+#    memo_quest.example:
+#        class: %memo_quest.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
