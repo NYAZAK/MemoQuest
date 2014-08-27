@@ -1,4 +1,4 @@
 rest:
     type: rest
-    ressource: "routing_rest.yml"
+    resource: "routing_rest.yml"
     prefix: /api
