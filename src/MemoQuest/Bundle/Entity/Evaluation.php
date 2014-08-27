@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Evaluation
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_EVALUATION")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\EvaluationRepository")
  */
 class Evaluation
