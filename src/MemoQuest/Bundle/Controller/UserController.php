@@ -1,6 +1,6 @@
 <?php
 
-namespace Nmpolo\RestBundle\Controller;
+namespace MemoQuest\Bundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -9,7 +9,7 @@ use FOS\RestBundle\Util\Codes;
 use Symfony\Component\HttpFoundation\Request;
 use MemoQuest\Bundle\Entity\User;
 
-class OrganisationController extends FOSRestController implements ClassResourceInterface
+class UserController extends FOSRestController implements ClassResourceInterface
 {
     /**
      * Collection get action
