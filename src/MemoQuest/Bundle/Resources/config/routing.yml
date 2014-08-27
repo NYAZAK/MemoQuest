@@ -1,7 +1,3 @@
 user:
     type: rest
     ressource: MemoQuest\Bundle\Controller\UserController
-
-liste:
-    type: rest
-    ressource: MemoQuest\Bundle\Controller\ListeController
