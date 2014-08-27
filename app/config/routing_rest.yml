@@ -1,3 +1,3 @@
 user:
     type: rest
-    resource: "@MemoQuestBundle/Ressources/config/routing.yml"
+    resource: "@MemoQuestBundle/Resources/config/routing.yml"
