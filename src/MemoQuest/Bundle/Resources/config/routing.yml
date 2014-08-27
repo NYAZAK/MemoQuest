@@ -1,3 +1,7 @@
-memo_quest_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: MemoQuestBundle:Default:index }
+user:
+    type: rest
+    ressource: MemoQuest\Bundle\Controller\UserController
+
+liste:
+    type: rest
+    ressource: MemoQuest\Bundle\Controller\ListeController
