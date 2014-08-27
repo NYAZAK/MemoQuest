@@ -1,3 +1,4 @@
-memo_quest:
+rest:
     type: rest
-    resource: "@MemoQuestBundle/Resources/config/routing.yml"
+    ressource: "routing_rest.yml"
+    prefix: /api
