@@ -62,18 +62,18 @@ class Liste
     private $category;
     
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="listes", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="listes", cascade={"persist"})
      * @ORM\JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")
      */
 	private $owner;
 	
 	/**
-     * @ORM\OneToMany(targetEntity="MotListe", mappedBy="liste", cascade={"remove", "persist"})
+     * @ORM\OneToMany(targetEntity="MotListe", mappedBy="liste", cascade={"persist"})
      */
     private $mots;
     
     /**
-     * @ORM\OneToMany(targetEntity="Evaluation", mappedBy="liste", cascade={"remove", "persist"})
+     * @ORM\OneToMany(targetEntity="Evaluation", mappedBy="liste", cascade={"persist"})
      */
     private $evaluations;
 
