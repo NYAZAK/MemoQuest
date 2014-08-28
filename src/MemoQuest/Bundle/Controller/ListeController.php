@@ -27,7 +27,7 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
 
         $entities = $em->getRepository('MemoQuestBundle:Liste')->findBy(
             array(
-                'user' => $userId,
+                'owner' => $userId,
             )
         );
 
@@ -145,7 +145,7 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
         $entity = $em->getRepository('MemoQuestBundle:Liste')->findOneBy(
             array(
                 'id' => $id,
-                'user' => $userId,
+                'owner' => $userId,
             )
         );
 
