@@ -1,3 +1,8 @@
 user:
     type: rest
     resource: MemoQuest\Bundle\Controller\UserController
+
+liste:
+    type: rest
+    parent: organisation
+    resource: MemoQuest\Bundle\Controller\ListeController

@@ -16,18 +16,18 @@ class UserController extends FOSRestController implements ClassResourceInterface
     /**
      * Collection get action
      * @var Request $request
-     * @var integer $organisationId Id of the entity's organisation
+     * @var integer $userId Id of the entity's user
      * @return array
      *
      * @Rest\View()
      */
-    public function cgetAction(Request $request, $organisationId)
+    public function cgetAction(Request $request, $userId)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('NmpoloRestBundle:User')->findBy(
+        $entities = $em->getRepository('MemoQuestBundle:Liste')->findBy(
             array(
-                'organisation' => $organisationId,
+                'user' => $userId,
             )
         );
 
@@ -38,15 +38,15 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Get action
-     * @var integer $organisationId Id of the entity's organisation
+     * @var integer $userId Id of the entity's user
      * @var integer $id Id of the entity
      * @return array
      *
      * @Rest\View()
      */
-    public function getAction($organisationId, $id)
+    public function getAction($userId, $id)
     {
-        $entity = $this->getEntity($organisationId, $id);
+        $entity = $this->getEntity($userId, $id);
 
         return array(
             'entity' => $entity,
@@ -56,15 +56,15 @@ class UserController extends FOSRestController implements ClassResourceInterface
     /**
      * Collection post action
      * @var Request $request
-     * @var integer $organisationId Id of the entity's organisation
+     * @var integer $userId Id of the entity's user
      * @return View|array
      */
-    public function cpostAction(Request $request, $organisationId)
+    public function cpostAction(Request $request, $userId)
     {
-        $organisation = $this->getOrganisation($organisationId);
-        $entity = new User();
-        $entity->setOrganisation($organisation);
-        $form = $this->createForm(new UserType(), $entity);
+        $user = $this->getUser($userId);
+        $entity = new Liste();
+        $entity->setOwner($organisation);
+        $form = $this->createForm(new ListeType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -74,9 +74,9 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
             return $this->redirectView(
                 $this->generateUrl(
-                    'get_organisation_user',
+                    'get_user_liste',
                     array(
-                        'organisationId' => $entity->getOrganisation()->getId(),
+                        'userId' => $entity->getUser()->getId(),
                         'id' => $entity->getId()
                     )
                 ),
@@ -92,14 +92,14 @@ class UserController extends FOSRestController implements ClassResourceInterface
     /**
      * Put action
      * @var Request $request
-     * @var integer $organisationId Id of the entity's organisation
+     * @var integer $userId Id of the entity's user
      * @var integer $id Id of the entity
      * @return View|array
      */
-    public function putAction(Request $request, $organisationId, $id)
+    public function putAction(Request $request, $userId, $id)
     {
-        $entity = $this->getEntity($organisationId, $id);
-        $form = $this->createForm(new UserType(), $entity);
+        $entity = $this->getEntity($userId, $id);
+        $form = $this->createForm(new ListeType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -117,13 +117,13 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Delete action
-     * @var integer $organisationId Id of the entity's organisation
+     * @var integer $userId Id of the entity's user
      * @var integer $id Id of the entity
      * @return View
      */
-    public function deleteAction($organisationId, $id)
+    public function deleteAction($userId, $id)
     {
-        $entity = $this->getEntity($organisationId, $id);
+        $entity = $this->getEntity($userId, $id);
 
         $em = $this->getDoctrine()->getManager();
         $em->remove($entity);
@@ -134,18 +134,18 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Get entity instance
-     * @var integer $organisationId Id of the entity's organisation
+     * @var integer $userId Id of the entity's user
      * @var integer $id Id of the entity
-     * @return User
+     * @return Liste
      */
-    protected function getEntity($organisationId, $id)
+    protected function getEntity($userId, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('NmpoloRestBundle:User')->findOneBy(
+        $entity = $em->getRepository('MemoQuestBundle:Liste')->findOneBy(
             array(
                 'id' => $id,
-                'organisation' => $organisationId,
+                'user' => $userId,
             )
         );
 
@@ -157,18 +157,18 @@ class UserController extends FOSRestController implements ClassResourceInterface
     }
 
     /**
-     * Get organisation instance
-     * @var integer $id Id of the organisation
-     * @return Organisation
+     * Get user instance
+     * @var integer $id Id of the user
+     * @return User
      */
-    protected function getOrganisation($id)
+    protected function getUser($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('NmpoloRestBundle:Organisation')->find($id);
+        $entity = $em->getRepository('MemoQuestBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find organisation entity');
+            throw $this->createNotFoundException('Unable to find user entity');
         }
 
         return $entity;
