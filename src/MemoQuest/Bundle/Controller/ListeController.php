@@ -61,7 +61,7 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
      */
     public function cpostAction(Request $request, $userId)
     {
-        $user = $this->getUser($userId);
+        $user = $this->getMQUser($userId);
         $entity = new Liste();
         $entity->setOwner($organisation);
         $form = $this->createForm(new ListeType(), $entity);
@@ -76,7 +76,7 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
                 $this->generateUrl(
                     'get_user_liste',
                     array(
-                        'userId' => $entity->getUser()->getId(),
+                        'userId' => $entity->getOwner()->getId(),
                         'id' => $entity->getId()
                     )
                 ),
@@ -161,7 +161,7 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
      * @var integer $id Id of the user
      * @return User
      */
-    public function getUser($id)
+    protected function getMQUser($id)
     {
         $em = $this->getDoctrine()->getManager();
 
