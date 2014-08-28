@@ -93,4 +93,45 @@ class UserController extends FOSRestController implements ClassResourceInterface
             'form' => $form,
         );
     }
+    
+    /**
+     * Put action
+     * @var Request $request
+     * @var integer $id Id of the entity
+     * @return View|array
+     */
+    public function putAction(Request $request, $id)
+    {
+        $entity = $this->getEntity($id);
+        $form = $this->createForm(new UserType(), $entity);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->view(null, Codes::HTTP_NO_CONTENT);
+        }
+
+        return array(
+            'form' => $form,
+        );
+    }
+
+    /**
+     * Delete action
+     * @var integer $id Id of the entity
+     * @return View
+     */
+    public function deleteAction($id)
+    {
+        $entity = $this->getEntity($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->view(null, Codes::HTTP_NO_CONTENT);
+    }
 }
