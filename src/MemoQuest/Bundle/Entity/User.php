@@ -3,6 +3,9 @@
 namespace MemoQuest\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * User
@@ -30,6 +33,8 @@ class User
      *
      * @ORM\Column(name="LAST_NAME", type="string", length=255)
      *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
      * @Expose
      */
     private $nom;
@@ -39,6 +44,8 @@ class User
      *
      * @ORM\Column(name="FIRST_NAME", type="string", length=255)
      *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
      * @Expose
      */
     private $prenom;
