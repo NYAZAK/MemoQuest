@@ -71,12 +71,13 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-//'userId' => $entity->getOwner()->getId()
+
+			throw $this->createNotFoundException(var_dump($entity->getOwner()));
             return $this->redirectView(
                 $this->generateUrl(
                     'get_user_liste',
                     array(
-                        'userId' => var_dump($entity->getOwner()),
+                        'userId' => $entity->getOwner()->getId(),
                         'id' => $entity->getId()
                     )
                 ),
