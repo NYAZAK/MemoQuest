@@ -18,7 +18,6 @@ class ListeType extends AbstractType
             ->add('nom')
             ->add('theme')
             ->add('category')
-            ->add('owner')
         ;
     }
     

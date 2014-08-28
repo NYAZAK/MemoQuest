@@ -72,7 +72,6 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
             $em->persist($entity);
             $em->flush();
 
-			throw $this->createNotFoundException(var_dump($user));
             return $this->redirectView(
                 $this->generateUrl(
                     'get_user_liste',
