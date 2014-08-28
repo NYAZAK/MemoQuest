@@ -28,8 +28,7 @@ class ListeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MemoQuest\Bundle\Entity\Liste',
-            'csrf_protection' => false,
+            'data_class' => 'MemoQuest\Bundle\Entity\Liste'
         ));
     }
 
