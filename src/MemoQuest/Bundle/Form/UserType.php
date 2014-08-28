@@ -26,7 +26,8 @@ class UserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MemoQuest\Bundle\Entity\User'
+            'data_class' => 'MemoQuest\Bundle\Entity\User',
+            'csrf_protection' => false,
         ));
     }
 
@@ -35,6 +36,6 @@ class UserType extends AbstractType
      */
     public function getName()
     {
-        return 'memoquest_bundle_user';
+        return 'user';
     }
 }

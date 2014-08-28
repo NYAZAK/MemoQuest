@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="MQ_USER")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\UserRepository")
+ *
+ * @ExclusionPolicy("all")
  */
 class User
 {
@@ -18,6 +20,8 @@ class User
      * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
      */
     private $id;
 
@@ -25,6 +29,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="LAST_NAME", type="string", length=255)
+     *
+     * @Expose
      */
     private $nom;
 
@@ -32,6 +38,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="FIRST_NAME", type="string", length=255)
+     *
+     * @Expose
      */
     private $prenom;
 

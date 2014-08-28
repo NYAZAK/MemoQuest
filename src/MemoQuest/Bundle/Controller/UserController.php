@@ -8,6 +8,7 @@ use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Util\Codes;
 use Symfony\Component\HttpFoundation\Request;
 use MemoQuest\Bundle\Entity\User;
+use MemoQuest\Bundle\Form\UserType;
 
 class UserController extends FOSRestController implements ClassResourceInterface
 {
@@ -61,5 +62,35 @@ class UserController extends FOSRestController implements ClassResourceInterface
         }
 
         return $entity;
+    }
+    
+    /**
+     * Collection post action
+     * @var Request $request
+     * @return View|array
+     */
+    public function cpostAction(Request $request)
+    {
+        $entity = new User();
+        $form = $this->createForm(new UserType(), $entity);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirectView(
+                $this->generateUrl(
+                    'get_user',
+                    array('id' => $entity->getId())
+                ),
+                Codes::HTTP_CREATED
+            );
+        }
+
+        return array(
+            'form' => $form,
+        );
     }
 }
