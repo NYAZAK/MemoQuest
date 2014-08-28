@@ -11,7 +11,7 @@ use MemoQuest\Bundle\Entity\User;
 use MemoQuest\Bundle\Entity\Liste;
 use MemoQuest\Bundle\Form\ListeType;
 
-class UserController extends FOSRestController implements ClassResourceInterface
+class ListeController extends FOSRestController implements ClassResourceInterface
 {
     /**
      * Collection get action
