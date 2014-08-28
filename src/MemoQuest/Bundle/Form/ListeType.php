@@ -38,6 +38,6 @@ class ListeType extends AbstractType
      */
     public function getName()
     {
-        return 'memoquest_bundle_liste';
+        return 'liste';
     }
 }
