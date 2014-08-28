@@ -63,7 +63,7 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
     {
         $user = $this->getMQUser($userId);
         $entity = new Liste();
-        $entity->setOwner($organisation);
+        $entity->setOwner($user);
         $form = $this->createForm(new ListeType(), $entity);
         $form->bind($request);
 
