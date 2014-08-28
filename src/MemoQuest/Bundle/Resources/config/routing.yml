@@ -4,5 +4,5 @@ user:
 
 liste:
     type: rest
-    parent: organisation
+    parent: user
     resource: MemoQuest\Bundle\Controller\ListeController
