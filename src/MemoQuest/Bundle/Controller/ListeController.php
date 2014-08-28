@@ -161,7 +161,7 @@ class ListeController extends FOSRestController implements ClassResourceInterfac
      * @var integer $id Id of the user
      * @return User
      */
-    protected function getUser($id)
+    public function getUser($id)
     {
         $em = $this->getDoctrine()->getManager();
 
