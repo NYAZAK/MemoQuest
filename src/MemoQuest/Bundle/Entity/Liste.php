@@ -3,12 +3,17 @@
 namespace MemoQuest\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Liste
  *
  * @ORM\Table(name="MQ_LISTE")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\ListeRepository")
+ *
+ * @ExclusionPolicy("all")
  */
 class Liste
 {
@@ -18,6 +23,8 @@ class Liste
      * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * * @Expose
      */
     private $id;
 
@@ -25,6 +32,10 @@ class Liste
      * @var string
      *
      * @ORM\Column(name="NAME", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
      */
     private $nom;
 
@@ -32,6 +43,10 @@ class Liste
      * @var string
      *
      * @ORM\Column(name="THEME", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
      */
     private $theme;
 
@@ -39,6 +54,10 @@ class Liste
      * @var string
      *
      * @ORM\Column(name="CATEGORY", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
      */
     private $category;
     
