@@ -17,7 +17,6 @@ class EvaluationType extends AbstractType
         $builder
             ->add('note')
             ->add('commentaire')
-            ->add('liste')
         ;
     }
     
