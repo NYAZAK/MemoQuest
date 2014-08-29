@@ -26,7 +26,7 @@ get_user_liste_mot:
 
 post_user_liste_mots:
     path:  /users/{userId}/listes/{listeId}/mots
-    defaults: { _controller: MemoQuestBundle:MotListe:post }
+    defaults: { _controller: MemoQuestBundle:MotListe:cpost }
     requirements:
         _method:  POST
         userId: \d+
