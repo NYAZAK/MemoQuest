@@ -7,7 +7,10 @@ liste:
     parent: user
     resource: MemoQuest\Bundle\Controller\ListeController
 
-mot:
-    type: rest
-    parent: liste
-    resource: MemoQuest\Bundle\Controller\MotListeController
+contact:
+    path:  /users/{userId}/listes/{listeId}/mots
+    defaults: { _controller: MemoQuestBundle:MotListe:cget }
+    requirements:
+        _method:  GET
+        userId: \d+
+        listeId: \d+
