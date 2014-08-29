@@ -51,7 +51,7 @@ class MotListe
     private $definition;
 
 	/**
-     * @ORM\ManyToOne(targetEntity="Liste", inversedBy="mots", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="Liste", inversedBy="mots", cascade={"persist"})
      * @ORM\JoinColumn(name="LIST_ID", referencedColumnName="ROW_ID")
      */
 	private $liste;
