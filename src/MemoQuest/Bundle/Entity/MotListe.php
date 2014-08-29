@@ -3,12 +3,17 @@
 namespace MemoQuest\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * MotListe
  *
  * @ORM\Table(name="MQ_MOT_LISTE")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\MotListeRepository")
+ *
+ * @ExclusionPolicy("all")
  */
 class MotListe
 {
@@ -18,6 +23,8 @@ class MotListe
      * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
      */
     private $id;
 
@@ -25,6 +32,10 @@ class MotListe
      * @var string
      *
      * @ORM\Column(name="MOT", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
      */
     private $mot;
     
@@ -32,6 +43,10 @@ class MotListe
      * @var string
      *
      * @ORM\Column(name="DEFINITION", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
      */
     private $definition;
 

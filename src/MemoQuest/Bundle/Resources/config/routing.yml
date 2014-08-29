@@ -6,3 +6,8 @@ liste:
     type: rest
     parent: user
     resource: MemoQuest\Bundle\Controller\ListeController
+
+mot:
+    type: rest
+    parent: liste
+    resource: MemoQuest\Bundle\Controller\MotListeController
