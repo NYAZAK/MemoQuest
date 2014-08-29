@@ -27,7 +27,8 @@ class EvaluationType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MemoQuest\Bundle\Entity\Evaluation'
+            'data_class' => 'MemoQuest\Bundle\Entity\Evaluation',
+            'csrf_protection' => false,
         ));
     }
 
@@ -36,6 +37,6 @@ class EvaluationType extends AbstractType
      */
     public function getName()
     {
-        return 'memoquest_bundle_evaluation';
+        return 'evaluation';
     }
 }
