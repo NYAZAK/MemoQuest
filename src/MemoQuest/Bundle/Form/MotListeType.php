@@ -17,7 +17,6 @@ class MotListeType extends AbstractType
         $builder
             ->add('mot')
             ->add('definition')
-            ->add('liste')
         ;
     }
     
@@ -27,7 +26,8 @@ class MotListeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MemoQuest\Bundle\Entity\MotListe'
+            'data_class' => 'MemoQuest\Bundle\Entity\MotListe',
+            'csrf_protection' => false,
         ));
     }
 
