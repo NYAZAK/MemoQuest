@@ -49,3 +49,46 @@ delete_user_liste_mot:
         userId: \d+
         listeId: \d+
         id: \d+
+        
+get_user_liste_evaluations:
+    path:  /users/{userId}/listes/{listeId}/evaluations
+    defaults: { _controller: MemoQuestBundle:Evaluation:cget }
+    requirements:
+        _method:  GET
+        userId: \d+
+        listeId: \d+
+
+get_user_liste_evaluation:
+    path:  /users/{userId}/listes/{listeId}/evaluations/{id}
+    defaults: { _controller: MemoQuestBundle:Evaluation:get }
+    requirements:
+        _method:  GET
+        userId: \d+
+        listeId: \d+
+        id: \d+
+
+post_user_liste_evaluations:
+    path:  /users/{userId}/listes/{listeId}/evaluations
+    defaults: { _controller: MemoQuestBundle:Evaluation:cpost }
+    requirements:
+        _method:  POST
+        userId: \d+
+        listeId: \d+
+
+put_user_liste_evaluation:
+    path:  /users/{userId}/listes/{listeId}/evaluations/{id}
+    defaults: { _controller: MemoQuestBundle:Evaluation:put }
+    requirements:
+        _method:  PUT
+        userId: \d+
+        listeId: \d+
+        id: \d+
+
+delete_user_liste_evaluation:
+    path:  /users/{userId}/listes/{listeId}/evaluations/{id}
+    defaults: { _controller: MemoQuestBundle:Evaluation:delete }
+    requirements:
+        _method:  DELETE
+        userId: \d+
+        listeId: \d+
+        id: \d+

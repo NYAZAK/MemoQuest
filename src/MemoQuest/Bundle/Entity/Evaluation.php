@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="MQ_EVALUATION")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\EvaluationRepository")
+ *
+ * @ExclusionPolicy("all")
  */
 class Evaluation
 {
@@ -25,6 +27,9 @@ class Evaluation
      * @var integer
      *
      * @ORM\Column(name="NOTE", type="integer")
+     *
+     * @Constraints\NotBlank
+     * @Expose
      */
     private $note;
 
@@ -32,6 +37,10 @@ class Evaluation
      * @var string
      *
      * @ORM\Column(name="COMMENT", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
      */
     private $commentaire;
     
