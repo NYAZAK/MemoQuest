@@ -36,6 +36,6 @@ class MotListeType extends AbstractType
      */
     public function getName()
     {
-        return 'memoquest_bundle_motliste';
+        return 'mot';
     }
 }
