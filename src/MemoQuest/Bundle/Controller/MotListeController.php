@@ -77,7 +77,7 @@ class MotListeController extends FOSRestController implements ClassResourceInter
 
             return $this->redirectView(
                 $this->generateUrl(
-                    'get_user_liste_mot_liste',
+                    'get_user_liste_mot',
                     array(
                         'userId' => $entity->getListe()->getOwner()->getId(),
                         'listeId' => $entity->getListe()->getId(),

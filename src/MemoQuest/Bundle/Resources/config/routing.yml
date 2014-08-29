@@ -7,10 +7,45 @@ liste:
     parent: user
     resource: MemoQuest\Bundle\Controller\ListeController
 
-contact:
+get_user_liste_mots:
     path:  /users/{userId}/listes/{listeId}/mots
     defaults: { _controller: MemoQuestBundle:MotListe:cget }
     requirements:
         _method:  GET
         userId: \d+
         listeId: \d+
+
+get_user_liste_mot:
+    path:  /users/{userId}/listes/{listeId}/mots/{id}
+    defaults: { _controller: MemoQuestBundle:MotListe:get }
+    requirements:
+        _method:  GET
+        userId: \d+
+        listeId: \d+
+        id: \d+
+
+post_user_liste_mots:
+    path:  /users/{userId}/listes/{listeId}/mots
+    defaults: { _controller: MemoQuestBundle:MotListe:post }
+    requirements:
+        _method:  POST
+        userId: \d+
+        listeId: \d+
+
+put_user_liste_mot:
+    path:  /users/{userId}/listes/{listeId}/mots/{id}
+    defaults: { _controller: MemoQuestBundle:MotListe:put }
+    requirements:
+        _method:  PUT
+        userId: \d+
+        listeId: \d+
+        id: \d+
+
+delete_user_liste_mot:
+    path:  /users/{userId}/listes/{listeId}/mots/{id}
+    defaults: { _controller: MemoQuestBundle:MotListe:delete }
+    requirements:
+        _method:  DELETE
+        userId: \d+
+        listeId: \d+
+        id: \d+
