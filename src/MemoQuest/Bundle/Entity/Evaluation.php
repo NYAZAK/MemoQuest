@@ -50,7 +50,7 @@ class Evaluation
     private $commentaire;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Liste", inversedBy="evaluations", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="Liste", inversedBy="evaluations", cascade={"persist"})
      * @ORM\JoinColumn(name="LIST_ID", referencedColumnName="ROW_ID")
      */
 	private $liste;
