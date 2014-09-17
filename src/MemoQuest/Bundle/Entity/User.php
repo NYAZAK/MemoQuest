@@ -66,9 +66,9 @@ class User
     }
 
     /**
-     * Set nom
+     * Set email
      *
-     * @param string $nom
+     * @param string $email
      * @return User
      */
     public function setEmail($email)
@@ -79,7 +79,7 @@ class User
     }
 
     /**
-     * Get nom
+     * Get email
      *
      * @return string 
      */
@@ -89,9 +89,9 @@ class User
     }
 
     /**
-     * Set prenom
+     * Set password
      *
-     * @param string $prenom
+     * @param string $password
      * @return User
      */
     public function setPassword($password)
@@ -102,7 +102,7 @@ class User
     }
 
     /**
-     * Get prenom
+     * Get password
      *
      * @return string 
      */
