@@ -31,24 +31,24 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="LAST_NAME", type="string", length=255)
+     * @ORM\Column(name="EMAIL", type="string", length=255)
      *
      * @Constraints\NotNull
      * @Constraints\NotBlank
      * @Expose
      */
-    private $nom;
+    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="FIRST_NAME", type="string", length=255)
+     * @ORM\Column(name="PASSWORD", type="string", length=255)
      *
      * @Constraints\NotNull
      * @Constraints\NotBlank
      * @Expose
      */
-    private $prenom;
+    private $password;
 
     /**
      * @ORM\OneToMany(targetEntity="Liste", mappedBy="owner", cascade={"remove", "persist"})
