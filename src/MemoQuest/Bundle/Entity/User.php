@@ -71,9 +71,9 @@ class User
      * @param string $nom
      * @return User
      */
-    public function setNom($nom)
+    public function setEmail($email)
     {
-        $this->nom = $nom;
+        $this->email = $email;
 
         return $this;
     }
@@ -83,9 +83,9 @@ class User
      *
      * @return string 
      */
-    public function getNom()
+    public function getEmail()
     {
-        return $this->nom;
+        return $this->email;
     }
 
     /**
@@ -94,9 +94,9 @@ class User
      * @param string $prenom
      * @return User
      */
-    public function setPrenom($prenom)
+    public function setPassword($password)
     {
-        $this->prenom = $prenom;
+        $this->password = $password;
 
         return $this;
     }
@@ -106,9 +106,9 @@ class User
      *
      * @return string 
      */
-    public function getPrenom()
+    public function getPassword()
     {
-        return $this->prenom;
+        return $this->password;
     }
     /**
      * Constructor
