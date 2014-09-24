@@ -55,6 +55,8 @@ class UserController extends FOSRestController implements ClassResourceInterface
      */
     public function getByEmailAction($userEmail)
     {
+    	$em = $this->getDoctrine()->getManager();
+    	
         $entity = $em->getRepository('MemoQuestBundle:User')->findOneBy(
             array(
                 'email' => $userEmail,
