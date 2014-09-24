@@ -46,7 +46,6 @@ class User
      *
      * @Constraints\NotNull
      * @Constraints\NotBlank
-     * @Expose
      */
     private $password;
 
