@@ -1,3 +1,9 @@
+get_user_email:
+    path: /users/{userEmail}
+    defaults: { _controller: MemoQuestBundle:User:getByEmail }
+    requirements:
+        _method: GET
+
 user:
     type: rest
     resource: MemoQuest\Bundle\Controller\UserController
@@ -6,12 +12,6 @@ liste:
     type: rest
     parent: user
     resource: MemoQuest\Bundle\Controller\ListeController
-
-get_user_email:
-    path: /users/{userEmail}
-    defaults: { _controller: MemoQuestBundle:User:getByEmail }
-    requirements:
-        _method: GET
     
 get_user_liste_mots:
     path: /users/{userId}/listes/{listeId}/mots
