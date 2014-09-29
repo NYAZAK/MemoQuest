@@ -86,13 +86,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirectView(
-                $this->generateUrl(
-                    'get_user',
-                    array('userEmail' => $entity->getEmail())
-                ),
-                Codes::HTTP_CREATED
-            );
+            return $this->view(null, Codes::HTTP_CREATED);
         }
 
         return array(
