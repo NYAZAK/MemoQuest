@@ -32,30 +32,14 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Get action
-     * @var integer $id Id of the entity
-     * @return array
-     *
-     * @Rest\View()
-     */
-    public function getAction($id)
-    {
-        $entity = $this->getEntity($id);
-
-        return array(
-            'entity' => $entity,
-        );
-    }
-    
-    /**
-     * GetByEmail action
      * @var integer $userEmail email of the entity
      * @return array
      *
      * @Rest\View()
      */
-    public function getByEmailAction($userEmail)
+    public function getAction($userEmail)
     {
-    	$em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
     	
         $entity = $em->getRepository('MemoQuestBundle:User')->findOneBy(
             array(

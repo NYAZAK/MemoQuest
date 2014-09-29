@@ -55,6 +55,41 @@ class Evaluation
      */
 	private $liste;
 
+	/**
+	 * @var datetime $created
+	 *
+	 * @ORM\Column(name="CREATED", type="datetime")
+	 *
+	 * @Expose
+	 */
+	private $created;
+
+	/**
+	 * @var integer $createdBy
+	 *
+	 * @ORM\Column(name="CREATED_BY", type="integer")
+	 *
+	 * @Expose
+	 */
+	private $createdBy;
+
+	/**
+	 * @var datetime $updated
+	 *
+	 * @ORM\Column(name="UPDATED", type="datetime")
+	 *
+	 * @Expose
+	 */
+	private $updated;
+
+	/**
+	 * @var integer $updatedBy
+	 *
+	 * @ORM\Column(name="UPDATED_BY", type="integer")
+	 *
+	 * @Expose
+	 */
+	private $updatedBy;
 
     /**
      * Get id
