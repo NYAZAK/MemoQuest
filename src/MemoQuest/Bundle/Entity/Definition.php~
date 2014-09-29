@@ -28,6 +28,33 @@ class Definition
      */
     private $definition;
 
+	/**
+	 * @var datetime $created
+	 *
+	 * @ORM\Column(name="CREATED", type="datetime")
+	 */
+	private $created;
+
+	/**
+	 * @var integer $createdBy
+	 *
+	 * @ORM\Column(name="CREATED_BY", type="integer")
+	 */
+	private $createdBy;
+
+	/**
+	 * @var datetime $updated
+	 *
+	 * @ORM\Column(name="UPDATED", type="datetime")
+	 */
+	private $updated;
+
+	/**
+	 * @var integer $updatedBy
+	 *
+	 * @ORM\Column(name="UPDATED_BY", type="integer")
+	 */
+	private $updatedBy;
 
     /**
      * Get id

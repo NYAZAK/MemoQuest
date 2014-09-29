@@ -3,6 +3,9 @@
 namespace MemoQuest\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * MotDict
@@ -28,6 +31,33 @@ class MotDict
      */
     private $mot;
 
+	/**
+	 * @var datetime $created
+	 *
+	 * @ORM\Column(name="CREATED", type="datetime")
+	 */
+	private $created;
+
+	/**
+	 * @var integer $createdBy
+	 *
+	 * @ORM\Column(name="CREATED_BY", type="integer")
+	 */
+	private $createdBy;
+
+	/**
+	 * @var datetime $updated
+	 *
+	 * @ORM\Column(name="UPDATED", type="datetime")
+	 */
+	private $updated;
+
+	/**
+	 * @var integer $updatedBy
+	 *
+	 * @ORM\Column(name="UPDATED_BY", type="integer")
+	 */
+	private $updatedBy;
 
     /**
      * Get id
