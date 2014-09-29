@@ -12,6 +12,7 @@ use JMS\Serializer\Annotation\Expose;
  *
  * @ORM\Table(name="MQ_EVALUATION")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\EvaluationRepository")
+ * @ORM\HasLifecycleCallbacks()
  *
  * @ExclusionPolicy("all")
  */
@@ -261,4 +262,20 @@ class Evaluation
     {
         return $this->updatedBy;
     }
+    
+    /**
+ 	 * @ORM\PrePersist
+ 	 */
+	public function setCreatedValue()
+	{
+    	$this->created = new \DateTime();
+	}
+	
+	/**
+ 	 * @ORM\PreUpdate
+ 	 */
+	public function setUpdatedValue()
+	{
+    	$this->updated = new \DateTime();
+	}
 }

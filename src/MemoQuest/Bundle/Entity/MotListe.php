@@ -12,6 +12,7 @@ use JMS\Serializer\Annotation\Expose;
  *
  * @ORM\Table(name="MQ_MOT_LISTE")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\MotListeRepository")
+ * @ORM\HasLifecycleCallbacks()
  *
  * @ExclusionPolicy("all")
  */
@@ -263,4 +264,20 @@ class MotListe
     {
         return $this->updatedBy;
     }
+    
+    /**
+ 	 * @ORM\PrePersist
+ 	 */
+	public function setCreatedValue()
+	{
+    	$this->created = new \DateTime();
+	}
+	
+	/**
+ 	 * @ORM\PreUpdate
+ 	 */
+	public function setUpdatedValue()
+	{
+    	$this->updated = new \DateTime();
+	}
 }

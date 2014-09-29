@@ -12,6 +12,7 @@ use JMS\Serializer\Annotation\Expose;
  *
  * @ORM\Table(name="MQ_MOT_DICT")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\MotDictRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class MotDict
 {
@@ -183,4 +184,20 @@ class MotDict
     {
         return $this->updatedBy;
     }
+    
+    /**
+ 	 * @ORM\PrePersist
+ 	 */
+	public function setCreatedValue()
+	{
+    	$this->created = new \DateTime();
+	}
+	
+	/**
+ 	 * @ORM\PreUpdate
+ 	 */
+	public function setUpdatedValue()
+	{
+    	$this->updated = new \DateTime();
+	}
 }

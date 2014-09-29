@@ -12,6 +12,7 @@ use JMS\Serializer\Annotation\Expose;
  *
  * @ORM\Table(name="MQ_LISTE")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\ListeRepository")
+ * @ORM\HasLifecycleCallbacks()
  *
  * @ExclusionPolicy("all")
  */
@@ -380,4 +381,20 @@ class Liste
     {
         return $this->updatedBy;
     }
+    
+    /**
+ 	 * @ORM\PrePersist
+ 	 */
+	public function setCreatedValue()
+	{
+    	$this->created = new \DateTime();
+	}
+	
+	/**
+ 	 * @ORM\PreUpdate
+ 	 */
+	public function setUpdatedValue()
+	{
+    	$this->updated = new \DateTime();
+	}
 }
