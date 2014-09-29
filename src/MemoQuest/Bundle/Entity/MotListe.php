@@ -67,7 +67,7 @@ class MotListe
 	 *
 	 * @Expose
 	 */
-	private $createdBy;
+	private $createdBy = 0;
 
 	/**
 	 * @var datetime $updated
@@ -85,7 +85,7 @@ class MotListe
 	 *
 	 * @Expose
 	 */
-	private $updatedBy;
+	private $updatedBy = 0;
 
 	/**
      * @ORM\ManyToOne(targetEntity="Liste", inversedBy="mots", cascade={"persist"})
@@ -271,6 +271,7 @@ class MotListe
 	public function setCreatedValue()
 	{
     	$this->created = new \DateTime();
+    	$this->updated = new \DateTime();
 	}
 	
 	/**

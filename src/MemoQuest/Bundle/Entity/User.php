@@ -66,7 +66,7 @@ class User
 	 *
 	 * @Expose
 	 */
-	private $createdBy;
+	private $createdBy = 0;
 
 	/**
 	 * @var datetime $updated
@@ -84,7 +84,7 @@ class User
 	 *
 	 * @Expose
 	 */
-	private $updatedBy;
+	private $updatedBy = 0;
 
     /**
      * @ORM\OneToMany(targetEntity="Liste", mappedBy="owner", cascade={"remove", "persist"})
@@ -285,6 +285,7 @@ class User
 	public function setCreatedValue()
 	{
     	$this->created = new \DateTime();
+    	$this->updated = new \DateTime();
 	}
 	
 	/**

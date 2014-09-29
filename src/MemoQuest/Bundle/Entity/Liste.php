@@ -94,7 +94,7 @@ class Liste
 	 *
 	 * @Expose
 	 */
-	private $createdBy;
+	private $createdBy = 0;
 
 	/**
 	 * @var datetime $updated
@@ -112,7 +112,7 @@ class Liste
 	 *
 	 * @Expose
 	 */
-	private $updatedBy;
+	private $updatedBy = 0;
 
     /**
      * Get id
@@ -388,6 +388,7 @@ class Liste
 	public function setCreatedValue()
 	{
     	$this->created = new \DateTime();
+    	$this->updated = new \DateTime();
 	}
 	
 	/**

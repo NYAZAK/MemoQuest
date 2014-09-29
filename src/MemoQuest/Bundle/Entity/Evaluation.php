@@ -72,7 +72,7 @@ class Evaluation
 	 *
 	 * @Expose
 	 */
-	private $createdBy;
+	private $createdBy = 0;
 
 	/**
 	 * @var datetime $updated
@@ -90,7 +90,7 @@ class Evaluation
 	 *
 	 * @Expose
 	 */
-	private $updatedBy;
+	private $updatedBy = 0;
 
     /**
      * Get id
@@ -269,6 +269,7 @@ class Evaluation
 	public function setCreatedValue()
 	{
     	$this->created = new \DateTime();
+    	$this->updated = new \DateTime();
 	}
 	
 	/**
