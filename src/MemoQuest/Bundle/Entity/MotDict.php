@@ -35,8 +35,6 @@ class MotDict
 	 * @var datetime $created
 	 *
 	 * @ORM\Column(name="CREATED", type="datetime")
-	 *
-	 * @Expose
 	 */
 	private $created;
 
@@ -44,8 +42,6 @@ class MotDict
 	 * @var integer $createdBy
 	 *
 	 * @ORM\Column(name="CREATED_BY", type="integer")
-	 *
-	 * @Expose
 	 */
 	private $createdBy;
 
@@ -53,8 +49,6 @@ class MotDict
 	 * @var datetime $updated
 	 *
 	 * @ORM\Column(name="UPDATED", type="datetime")
-	 *
-	 * @Expose
 	 */
 	private $updated;
 
@@ -62,8 +56,6 @@ class MotDict
 	 * @var integer $updatedBy
 	 *
 	 * @ORM\Column(name="UPDATED_BY", type="integer")
-	 *
-	 * @Expose
 	 */
 	private $updatedBy;
 
