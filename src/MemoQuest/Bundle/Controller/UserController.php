@@ -89,7 +89,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
             return $this->redirectView(
                 $this->generateUrl(
                     'get_user',
-                    array('id' => $entity->getId())
+                    array('email' => $entity->getEmail())
                 ),
                 Codes::HTTP_CREATED
             );
