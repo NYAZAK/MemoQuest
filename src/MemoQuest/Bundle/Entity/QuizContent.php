@@ -74,8 +74,8 @@ class QuizContent
     private $solution;
 
 	/**
-     * @ManyToOne(targetEntity="Quiz")
-     * @JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
+     * @ORM\ManyToOne(targetEntity="Quiz")
+     * @ORM\JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
      **/
 	private $skill;
 
