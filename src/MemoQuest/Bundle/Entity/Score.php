@@ -39,14 +39,14 @@ class Score
     private $time;
 
 	/**
-     * @OneToOne(targetEntity="Quiz")
-     * @JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
+     * @ORM\OneToOne(targetEntity="Quiz")
+     * @ORM\JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
      **/
     private $quiz;
     
     /**
-     * @OneToOne(targetEntity="User")
-     * @JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")
      **/
     private $user;
 

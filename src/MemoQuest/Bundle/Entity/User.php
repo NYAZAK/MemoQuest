@@ -135,10 +135,10 @@ class User
     private $quiz;
 
 	/**
-     * @ManyToMany(targetEntity="UsersGroup")
-     * @JoinTable(name="MQ_GROUP_USER",
-     *      joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")},
-     *      inverseJoinColumns={@JoinColumn(name="GROUP_ID", referencedColumnName="ROW_ID")}
+     * @ORM\ManyToMany(targetEntity="UsersGroup")
+     * @ORM\JoinTable(name="MQ_GROUP_USER",
+     *      joinColumns={@ORM\JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="GROUP_ID", referencedColumnName="ROW_ID")}
      *      )
      **/
      private $groups;

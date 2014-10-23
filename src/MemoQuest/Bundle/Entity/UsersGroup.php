@@ -32,7 +32,7 @@ class UsersGroup
     private $name;
 
 	/**
-     * @ManyToMany(targetEntity="User", mappedBy="groups")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="groups")
      **/
     private $members;
 

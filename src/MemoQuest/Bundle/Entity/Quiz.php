@@ -32,8 +32,8 @@ class Quiz
     private $name;
 
 	/**
-     * @ManyToOne(targetEntity="Skill")
-     * @JoinColumn(name="SKILL_ID", referencedColumnName="ROW_ID")
+     * @ORM\ManyToOne(targetEntity="Skill")
+     * @ORM\JoinColumn(name="SKILL_ID", referencedColumnName="ROW_ID")
      **/
 	private $skill;
 
