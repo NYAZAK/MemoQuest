@@ -29,6 +29,38 @@ class User
      */
     private $id;
 
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="LAST_NAME", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
+     */
+    private $lastName;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="FIRST_NAME", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
+     */
+    private $firstName;
+
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="ROLE", type="integer")
+     *
+     * @Constraints\NotNull
+     * @Expose
+     */
+    private $role;
+
     /**
      * @var string
      *
@@ -39,6 +71,17 @@ class User
      * @Expose
      */
     private $email;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="LOGIN", type="string", length=255)
+     *
+     * @Constraints\NotNull
+     * @Constraints\NotBlank
+     * @Expose
+     */
+    private $login;
 
     /**
      * @var string
@@ -87,9 +130,15 @@ class User
 	private $updatedBy = 0;
 
     /**
-     * @ORM\OneToMany(targetEntity="Liste", mappedBy="owner", cascade={"remove", "persist"})
+     * @ORM\OneToMany(targetEntity="Quiz", mappedBy="owner", cascade={"remove", "persist"})
      */
-    private $listes;
+    private $quiz;
+
+	/**
+     * @ManyToMany(targetEntity="Group", inversedBy="users")
+     * @JoinTable(name="users_groups")
+     **/
+     private $groups
 
     /**
      * Get id
@@ -146,12 +195,14 @@ class User
     {
         return $this->password;
     }
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->listes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
