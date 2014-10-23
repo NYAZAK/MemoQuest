@@ -48,7 +48,7 @@ class Score
      * @OneToOne(targetEntity="User")
      * @JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")
      **/
-    private $quiz;
+    private $user;
 
 	/**
 	 * @var datetime $created
