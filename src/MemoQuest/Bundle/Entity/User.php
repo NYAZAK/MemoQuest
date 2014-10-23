@@ -141,7 +141,7 @@ class User
      *      inverseJoinColumns={@JoinColumn(name="GROUP_ID", referencedColumnName="ROW_ID")}
      *      )
      **/
-     private $groups
+     private $groups;
 
     /**
      * Get id
