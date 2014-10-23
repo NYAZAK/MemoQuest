@@ -3,11 +3,14 @@
 namespace MemoQuest\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * QuizContent
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_QUIZZ_CONTENT")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\QuizContentRepository")
  */
 class QuizContent
@@ -15,7 +18,7 @@ class QuizContent
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,52 +27,93 @@ class QuizContent
     /**
      * @var integer
      *
-     * @ORM\Column(name="questionType", type="integer")
+     * @ORM\Column(name="QUESTION_TYPE", type="integer")
      */
     private $questionType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="question", type="string", length=255)
+     * @ORM\Column(name="QUESTION", type="string", length=255)
      */
     private $question;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="answerA", type="string", length=255)
+     * @ORM\Column(name="ANSWER_A", type="string", length=255)
      */
     private $answerA;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="answerB", type="string", length=255)
+     * @ORM\Column(name="ANSWER_B", type="string", length=255)
      */
     private $answerB;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="answerC", type="string", length=255)
+     * @ORM\Column(name="ANSWER_C", type="string", length=255)
      */
     private $answerC;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="answerD", type="string", length=255)
+     * @ORM\Column(name="ANSWER_D", type="string", length=255)
      */
     private $answerD;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="solution", type="string", length=255)
+     * @ORM\Column(name="SOLUTION", type="string", length=255)
      */
     private $solution;
 
+	/**
+     * @ManyToOne(targetEntity="Quiz")
+     * @JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
+     **/
+	private $skill;
+
+	/**
+	 * @var datetime $created
+	 *
+	 * @ORM\Column(name="CREATED", type="datetime")
+	 *
+	 * @Expose
+	 */
+	private $created;
+
+	/**
+	 * @var integer $createdBy
+	 *
+	 * @ORM\Column(name="CREATED_BY", type="integer")
+	 *
+	 * @Expose
+	 */
+	private $createdBy = 0;
+
+	/**
+	 * @var datetime $updated
+	 *
+	 * @ORM\Column(name="UPDATED", type="datetime")
+	 *
+	 * @Expose
+	 */
+	private $updated;
+
+	/**
+	 * @var integer $updatedBy
+	 *
+	 * @ORM\Column(name="UPDATED_BY", type="integer")
+	 *
+	 * @Expose
+	 */
+	private $updatedBy = 0;
 
     /**
      * Get id

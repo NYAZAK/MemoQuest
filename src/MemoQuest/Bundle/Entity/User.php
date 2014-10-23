@@ -135,8 +135,11 @@ class User
     private $quiz;
 
 	/**
-     * @ManyToMany(targetEntity="Group", inversedBy="users")
-     * @JoinTable(name="users_groups")
+     * @ManyToMany(targetEntity="UsersGroup")
+     * @JoinTable(name="MQ_GROUP_USER",
+     *      joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")},
+     *      inverseJoinColumns={@JoinColumn(name="GROUP_ID", referencedColumnName="ROW_ID")}
+     *      )
      **/
      private $groups
 

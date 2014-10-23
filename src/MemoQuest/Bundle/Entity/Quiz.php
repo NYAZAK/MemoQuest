@@ -3,11 +3,14 @@
 namespace MemoQuest\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Quiz
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_QUIZ")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\QuizRepository")
  */
 class Quiz
@@ -15,7 +18,7 @@ class Quiz
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,10 +27,51 @@ class Quiz
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="NAME", type="string", length=255)
      */
     private $name;
 
+	/**
+     * @ManyToOne(targetEntity="Skill")
+     * @JoinColumn(name="SKILL_ID", referencedColumnName="ROW_ID")
+     **/
+	private $skill;
+
+	/**
+	 * @var datetime $created
+	 *
+	 * @ORM\Column(name="CREATED", type="datetime")
+	 *
+	 * @Expose
+	 */
+	private $created;
+
+	/**
+	 * @var integer $createdBy
+	 *
+	 * @ORM\Column(name="CREATED_BY", type="integer")
+	 *
+	 * @Expose
+	 */
+	private $createdBy = 0;
+
+	/**
+	 * @var datetime $updated
+	 *
+	 * @ORM\Column(name="UPDATED", type="datetime")
+	 *
+	 * @Expose
+	 */
+	private $updated;
+
+	/**
+	 * @var integer $updatedBy
+	 *
+	 * @ORM\Column(name="UPDATED_BY", type="integer")
+	 *
+	 * @Expose
+	 */
+	private $updatedBy = 0;
 
     /**
      * Get id

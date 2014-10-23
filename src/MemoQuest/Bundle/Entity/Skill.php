@@ -3,11 +3,14 @@
 namespace MemoQuest\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Skill
  *
- * @ORM\Table()
+ * @ORM\Table(name="MQ_SKILL")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\SkillRepository")
  */
 class Skill
@@ -15,7 +18,7 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ROW_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,31 +27,66 @@ class Skill
     /**
      * @var string
      *
-     * @ORM\Column(name="grade", type="string", length=255)
+     * @ORM\Column(name="GRADE", type="string", length=255)
      */
     private $grade;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="subject", type="string", length=255)
+     * @ORM\Column(name="SUBJECT", type="string", length=255)
      */
     private $subject;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\Column(name="CATEGORY", type="string", length=255)
      */
     private $category;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="skill", type="string", length=255)
+     * @ORM\Column(name="SKILL", type="string", length=255)
      */
     private $skill;
 
+	/**
+	 * @var datetime $created
+	 *
+	 * @ORM\Column(name="CREATED", type="datetime")
+	 *
+	 * @Expose
+	 */
+	private $created;
+
+	/**
+	 * @var integer $createdBy
+	 *
+	 * @ORM\Column(name="CREATED_BY", type="integer")
+	 *
+	 * @Expose
+	 */
+	private $createdBy = 0;
+
+	/**
+	 * @var datetime $updated
+	 *
+	 * @ORM\Column(name="UPDATED", type="datetime")
+	 *
+	 * @Expose
+	 */
+	private $updated;
+
+	/**
+	 * @var integer $updatedBy
+	 *
+	 * @ORM\Column(name="UPDATED_BY", type="integer")
+	 *
+	 * @Expose
+	 */
+	private $updatedBy = 0;
 
     /**
      * Get id
