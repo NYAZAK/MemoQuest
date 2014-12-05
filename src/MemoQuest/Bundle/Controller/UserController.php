@@ -37,13 +37,13 @@ class UserController extends FOSRestController implements ClassResourceInterface
      *
      * @Rest\View()
      */
-    public function getAction($userEmail)
+    public function getAction($login)
     {
         $em = $this->getDoctrine()->getManager();
     	
         $entity = $em->getRepository('MemoQuestBundle:User')->findOneBy(
             array(
-                'email' => $userEmail,
+                'login' => $login,
             )
         );
         
@@ -75,7 +75,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
      * @var Request $request
      * @return View|array
      */
-    public function cpostAction(Request $request)
+  /*  public function cpostAction(Request $request)
     {
         $entity = new User();
         $form = $this->createForm(new UserType(), $entity);
@@ -92,7 +92,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
         return array(
             'form' => $form,
         );
-    }
+    }*/
     
     /**
      * Put action
@@ -100,7 +100,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
      * @var integer $id Id of the entity
      * @return View|array
      */
-    public function putAction(Request $request, $id)
+    /*public function putAction(Request $request, $id)
     {
         $entity = $this->getEntity($id);
         $form = $this->createForm(new UserType(), $entity);
@@ -117,14 +117,14 @@ class UserController extends FOSRestController implements ClassResourceInterface
         return array(
             'form' => $form,
         );
-    }
+    }*/
 
     /**
      * Delete action
      * @var integer $id Id of the entity
      * @return View
      */
-    public function deleteAction($id)
+    /*public function deleteAction($id)
     {
         $entity = $this->getEntity($id);
 
@@ -133,5 +133,5 @@ class UserController extends FOSRestController implements ClassResourceInterface
         $em->flush();
 
         return $this->view(null, Codes::HTTP_NO_CONTENT);
-    }
+    }*/
 }
