@@ -24,12 +24,6 @@ class QuizContent
      */
     private $id;
 
-	/**
-     * @ORM\ManyToOne(targetEntity="Quiz")
-     * @ORM\JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
-     **/
-	private $quiz;
-
     /**
      * @var integer
      *
@@ -83,7 +77,7 @@ class QuizContent
      * @ORM\ManyToOne(targetEntity="Quiz")
      * @ORM\JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
      **/
-	private $skill;
+	private $quiz;
 
 	/**
 	 * @var datetime $created
