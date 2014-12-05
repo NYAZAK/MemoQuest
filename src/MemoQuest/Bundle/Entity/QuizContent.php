@@ -24,6 +24,12 @@ class QuizContent
      */
     private $id;
 
+	/**
+     * @ORM\ManyToOne(targetEntity="Quiz")
+     * @ORM\JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
+     **/
+	private $quiz;
+
     /**
      * @var integer
      *
