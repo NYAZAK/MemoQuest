@@ -2,10 +2,14 @@ user:
     type: rest
     resource: MemoQuest\Bundle\Controller\UserController
 
-liste:
+quiz:
     type: rest
-    parent: user
-    resource: MemoQuest\Bundle\Controller\ListeController
+    resource: MemoQuest\Bundle\Controller\QuizController
+
+quizz_content:
+    type: rest
+    parent: quiz
+    resource: MemoQuest\Bundle\Controller\QuizContentController
     
 get_user_liste_mots:
     path: /users/{userId}/listes/{listeId}/mots

@@ -32,7 +32,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Get action
-     * @var integer $userEmail email of the entity
+     * @var integer $login login of the entity
      * @return array
      *
      * @Rest\View()
