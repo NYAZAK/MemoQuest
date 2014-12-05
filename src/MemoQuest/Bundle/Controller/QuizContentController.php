@@ -11,7 +11,7 @@ use MemoQuest\Bundle\Entity\Quiz;
 use MemoQuest\Bundle\Entity\QuizContent;
 use MemoQuest\Bundle\Form\UserType;
 
-class QuizController extends FOSRestController implements ClassResourceInterface
+class QuizContentController extends FOSRestController implements ClassResourceInterface
 {
     /**
      * Collection get action
