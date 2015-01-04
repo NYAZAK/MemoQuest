@@ -354,4 +354,19 @@ class User implements UserInterface
 	public function eraseCredentials()
 	{
 	}
+	
+	function getRoles()
+	{
+		return (array('ROLE_USER'));
+	}
+	
+	function getSalt()
+	{
+		return ("SALT");
+	}
+	
+	function getUsername()
+	{
+		return ($this->email);
+	}
 }
