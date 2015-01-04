@@ -1,7 +1,3 @@
-default:
-path: /{name}
-    defaults: { _controller: MemoQuestBundle:Default:index }
-
 user:
     type: rest
     resource: MemoQuest\Bundle\Controller\UserController

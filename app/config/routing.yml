@@ -2,3 +2,7 @@ rest:
     type: rest
     resource: "routing_rest.yml"
     prefix: /api
+
+default:
+    path: /{name}
+    defaults: { _controller: MemoQuestBundle:Default:index }
