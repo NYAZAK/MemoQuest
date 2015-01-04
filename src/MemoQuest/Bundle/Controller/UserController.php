@@ -64,6 +64,8 @@ class UserController extends FOSRestController implements ClassResourceInterface
             )
         );
 		
+		return $user;
+		
 		if ($user->password == $password)
 			return ($this->view(null, Codes::HTTP_OK));
 			
