@@ -52,6 +52,11 @@ class UserController extends FOSRestController implements ClassResourceInterface
         );
     }
 
+	public function postAction(Request $request)
+	{
+		return (var_dump($request));
+	}
+
     /**
      * Get entity instance
      * @var integer $id Id of the entity
