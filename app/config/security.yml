@@ -1,10 +1,10 @@
 security:
     encoders:
-        MemoQuest\Entity\User: plaintext
+        MemoQuest\Bundle\Entity\User: plaintext
 
     providers:
         main:
-            entity: { class: MemoQuest\Entity\User, property: email }
+            entity: { class: MemoQuest\Bundle\Entity\User, property: email }
 
     firewalls:
         dev:
