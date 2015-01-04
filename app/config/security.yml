@@ -10,7 +10,7 @@ security:
 
         main:
             pattern: ^/
-            ananymous: true
+            anonymous: true
 
         default:
             anonymous: ~
