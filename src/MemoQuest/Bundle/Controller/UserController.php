@@ -57,7 +57,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
 		$login = $request->get("login");
 		$password = $request->get("password");
 		
-		$user = (User) $this->getEntity($login);
+		$user = $this->getEntity($login);
 		
 		if ($user->getPassword() == $password)
 			return ($this->view(null, Codes::HTTP_OK));
