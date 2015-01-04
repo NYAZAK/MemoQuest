@@ -24,7 +24,7 @@ class QuizContentController extends FOSRestController implements ClassResourceIn
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MemoQuestBundle:Quiz')->findBy(
+        $entities = $em->getRepository('MemoQuestBundle:QuizContent')->findBy(
         	array(
                 'quiz' => $quizId,
             )
