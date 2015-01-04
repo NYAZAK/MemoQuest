@@ -54,7 +54,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
 	public function postAction(Request $request)
 	{
-		return (var_dump($request));
+		return (var_dump($request->all()));
 	}
 
     /**
