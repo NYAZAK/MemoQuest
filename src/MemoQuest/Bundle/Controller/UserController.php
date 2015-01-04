@@ -54,19 +54,31 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
 	public function postAction(Request $request)
 	{
-		return ($request->get("login"));
+		$login = $request->get("login");
+		$password = $request->get("password");
+		
+		$user = getEntity($login);
+		
+		if ($user->getPassword() == $password)
+			return ($this->view(null, Codes::HTTP_OK));
+			
+		return ($this->view(null, Codes::HTTP_FORBIDDEN));
 	}
 
     /**
      * Get entity instance
-     * @var integer $id Id of the entity
+     * @var $login login of the user
      * @return User
      */
-    protected function getEntity($id)
+    protected function getEntity($login)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MemoQuestBundle:User')->find($id);
+        $entity = $em->getRepository('MemoQuestBundle:User')->findBy(
+        	array(
+                'login' => $login,
+            )
+        );
 
         if (!$entity) {
             throw $this->createNotFoundException('User inexistant');
