@@ -85,7 +85,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
             throw $this->createNotFoundException('User inexistant');
         }
 
-        return $entity->id;
+        return $entity[0]->id;
     }
     
     /**
