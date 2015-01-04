@@ -76,6 +76,8 @@ class QuizContent
 	/**
      * @ORM\ManyToOne(targetEntity="Quiz")
      * @ORM\JoinColumn(name="QUIZ_ID", referencedColumnName="ROW_ID")
+     *
+     * @Exclude
      **/
 	private $quiz;
 
