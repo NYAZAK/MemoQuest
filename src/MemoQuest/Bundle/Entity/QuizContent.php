@@ -10,7 +10,7 @@ use JMS\Serializer\Annotation\Expose;
 /**
  * QuizContent
  *
- * @ORM\Table(name="MQ_QUIZZ_CONTENT")
+ * @ORM\Table(name="MQ_QUIZ_CONTENT")
  * @ORM\Entity(repositoryClass="MemoQuest\Bundle\Entity\QuizContentRepository")
  */
 class QuizContent
