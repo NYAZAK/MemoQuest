@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -16,7 +17,7 @@ use JMS\Serializer\Annotation\Expose;
  *
  * @ExclusionPolicy("all")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -348,5 +349,9 @@ class User
 	public function setUpdatedValue()
 	{
     	$this->updated = new \DateTime();
+	}
+	
+	public function eraseCredentials()
+	{
 	}
 }
