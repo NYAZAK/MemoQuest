@@ -131,7 +131,11 @@ class User implements UserInterface
 	private $updatedBy = 0;
 
     /**
-     * @ORM\OneToMany(targetEntity="Quiz", mappedBy="owner", cascade={"remove", "persist"})
+     * @ORM\ManyToMany(targetEntity="Quiz")
+     * @ORM\JoinTable(name="MQ_USER_QUIZ",
+     *      joinColumns={@ORM\JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="QUIZZ_ID", referencedColumnName="ROW_ID")}
+     *      )
      */
     private $quiz;
 
