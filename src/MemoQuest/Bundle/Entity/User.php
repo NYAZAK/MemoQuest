@@ -140,7 +140,7 @@ class User implements UserInterface
     private $quiz;
 
 	/**
-     * @ORM\ManyToMany(targetEntity="UsersGroup")
+     * @ORM\ManyToMany(targetEntity="UsersGroup", inversedBy="members")
      * @ORM\JoinTable(name="MQ_GROUP_USER",
      *      joinColumns={@ORM\JoinColumn(name="USER_ID", referencedColumnName="ROW_ID")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="GROUP_ID", referencedColumnName="ROW_ID")}
