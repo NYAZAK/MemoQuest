@@ -54,10 +54,15 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
 	public function postAction(Request $request)
 	{
+		$em = $this->getDoctrine()->getManager();
 		$login = $request->get("login");
 		$password = $request->get("password");
 		
-		$user = $this->getEntity($login);
+		$user = $em->getRepository('MemoQuestBundle:User')->findBy(
+        	array(
+                'login' => $login,
+            )
+        );
 		
 		if ($user->getPassword() == $password)
 			return ($this->view(null, Codes::HTTP_OK));
