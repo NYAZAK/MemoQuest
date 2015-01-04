@@ -8,5 +8,9 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        main:
+            pattern: ^/
+            ananymous: true
+
         default:
             anonymous: ~
