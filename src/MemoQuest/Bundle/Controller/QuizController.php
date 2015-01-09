@@ -25,9 +25,7 @@ class QuizController extends FOSRestController implements ClassResourceInterface
 
         $entities = $em->getRepository('MemoQuestBundle:Quiz')->findAll();
 
-        return array(
-            'entities' => $entities,
-        );
+        return ($entities);
     }
 
     /**
