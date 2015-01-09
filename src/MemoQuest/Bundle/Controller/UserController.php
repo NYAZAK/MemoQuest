@@ -25,9 +25,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
 
         $entities = $em->getRepository('MemoQuestBundle:User')->findAll();
 
-        return array(
-            'entities' => $entities,
-        );
+        return ($entities);
     }
 
     /**
